@@ -6,7 +6,7 @@
 
 # Solana Agent Kit
 
-![SAKCover2](https://github-production-user-asset-6210df.s3.amazonaws.com/94689880/428847704-a6072421-8958-4cee-934a-a10ea32ae75e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260326%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260326T115235Z&X-Amz-Expires=300&X-Amz-Signature=8eb0646fc0344c6b8fe7d20bcc216337c03ff75aa775bcd5858a02aba0e7581e&X-Amz-SignedHeaders=host)
+![SAKCover2](https://github.com/user-attachments/assets/a6072421-8958-4cee-934a-a10ea32ae75e)
 
 [![NPM Downloads](https://img.shields.io/npm/dm/solana-agent-kit?style=for-the-badge)](https://www.npmjs.com/package/solana-agent-kit)
 [![GitHub forks](https://img.shields.io/github/forks/sendaifun/solana-agent-kit?style=for-the-badge)](https://github.com/sendaifun/solana-agent-kit/network/members)
