@@ -1,9 +1,9 @@
 name: ci
 on:
   push:
-    branches: [main]
+    branches: [v2]
   pull_request:
-    branches: [main]
+    branches: [v2]
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
 
       - uses: pnpm/action-setup@v3
         with:
-          version: 9.4.0
+          version: 9.15.3
 
       - name: Install node-gyp prerequisites
         run: sudo apt update && sudo apt install -y build-essential python3 pkg-config libudev-dev libusb-1.0-0-dev
@@ -23,10 +23,10 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
-      - name: Run lint and fix
-        run: pnpm run lint:fix
+      - name: Run lint
+        run: pnpm run lint
 
       - name: Build packages
         run: pnpm run build
