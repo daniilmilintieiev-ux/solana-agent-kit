@@ -107,12 +107,12 @@ export function summarizeWalletIntelligence(
 ): WalletIntelligence {
   const txs = Array.isArray(transactions) ? transactions : [];
   const recentSwaps: WalletSwapEvent[] = [];
-  const protocols = new Set<string>();
+  const protocolCounts = new Map<string, number>();
   let lastActiveAt: number | null = null;
 
   for (const tx of txs) {
-    if (tx?.source) {
-      protocols.add(tx.source);
+    if (typeof tx?.source === "string" && tx.source) {
+      protocolCounts.set(tx.source, (protocolCounts.get(tx.source) ?? 0) + 1);
     }
     if (typeof tx?.timestamp === "number") {
       if (lastActiveAt === null || tx.timestamp > lastActiveAt) {
@@ -133,7 +133,9 @@ export function summarizeWalletIntelligence(
     }
   }
 
-  const topProtocols = Array.from(protocols).sort((a, b) => b.localeCompare(a));
+  const topProtocols = Array.from(protocolCounts.entries())
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([name]) => name);
 
   const signals: string[] = [];
   if (recentSwaps.length > 0) {
